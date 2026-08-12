@@ -30,13 +30,26 @@ export interface UserProfile {
   avatar: string;
   memberTier: 'Bronze' | 'Silver' | 'Gold' | 'VIP Platinum';
   joinDate: string;
+  role: 'customer' | 'admin';
 }
+
+export interface UserAccount {
+  profile: UserProfile;
+  password: string;
+}
+
+export type OrderStatus = 'Đang xử lý' | 'Đã xác nhận' | 'Đang giao' | 'Đã hoàn thành' | 'Đã hủy';
+export type PaymentStatus = 'Chưa thanh toán' | 'Đã thanh toán' | 'Đã hoàn tiền';
 
 export interface OrderItem {
   id: string;
   date: string;
   items: CartItem[];
   totalAmount: number;
-  status: 'Đang xử lý' | 'Đã xác nhận' | 'Đang giao' | 'Đã hoàn thành' | 'Đã hủy';
+  status: OrderStatus;
   paymentMethod: string;
+  paymentStatus: PaymentStatus;
+  customerEmail: string;
+  customerName: string;
+  customerPhone: string;
 }

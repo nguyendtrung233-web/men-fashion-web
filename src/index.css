@@ -201,6 +201,21 @@ footer .luxury-brand-font {
   color: #3a2908;
 }
 
+.badge.bg-amber-100.text-amber-800,
+.bg-amber-100.text-amber-800 {
+  border-color: #e7c865 !important;
+  background: #fff1bf !important;
+  color: #5c3e07 !important;
+}
+
+.badge.bg-amber-500.text-slate-950,
+.bg-amber-500.text-slate-900,
+.navbar-custom .nav-link.btn-gold {
+  background-color: #f0bd47 !important;
+  color: #241803 !important;
+  text-shadow: none !important;
+}
+
 .is-invalid-custom {
   border-color: #dc3545 !important;
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.12) !important;
@@ -308,6 +323,159 @@ footer .luxury-brand-font {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   background: var(--gentleman-ivory);
+}
+
+/* Contrast safeguards for utility classes used across Bootstrap/Tailwind. */
+.bg-slate-900,
+.bg-slate-800 {
+  color: #f8fafc;
+}
+
+.bg-slate-900 .text-slate-400,
+.bg-slate-800 .text-slate-400 {
+  color: #cbd5e1 !important;
+}
+
+.bg-slate-900 .text-slate-300,
+.bg-slate-800 .text-slate-300 {
+  color: #e2e8f0 !important;
+}
+
+.bg-white .text-slate-400,
+.card.bg-white .text-slate-400 {
+  color: #64748b !important;
+}
+
+.bg-white .text-slate-500,
+.card.bg-white .text-slate-500 {
+  color: #526174 !important;
+}
+
+.contact-form-header {
+  border-color: #e4c985 !important;
+  background: linear-gradient(135deg, #fff8e8, #f7e7bd) !important;
+  color: #111827 !important;
+}
+
+.contact-form-header h4 {
+  color: #77520d !important;
+}
+
+.contact-form-header__subtitle {
+  color: #475569 !important;
+}
+
+.contact-info-card {
+  background: linear-gradient(145deg, #0a1424, #17263d) !important;
+}
+
+.contact-info-card__content {
+  color: #e2e8f0 !important;
+}
+
+.contact-info-card__content strong {
+  color: #ffffff !important;
+}
+
+.admin-page {
+  background: #eef2f7;
+  color: #172033;
+}
+
+.admin-hero {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(240, 193, 83, 0.2), transparent 28%),
+    linear-gradient(125deg, #08111f, #17263d);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.2);
+}
+
+.admin-hero__subtitle {
+  color: #dbe4ef;
+}
+
+.admin-user-chip {
+  border: 1px solid rgba(246, 215, 141, 0.5);
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+}
+
+.admin-user-chip small {
+  color: #cbd5e1;
+}
+
+.admin-stat,
+.admin-panel {
+  background: #fff !important;
+  color: #172033 !important;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+.admin-stat__icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 12px;
+}
+
+.admin-stat__icon--navy { background: #e8eef7; color: #17263d; }
+.admin-stat__icon--gold { background: #fff0c2; color: #75500a; }
+.admin-stat__icon--orange { background: #ffead9; color: #9a4208; }
+.admin-stat__icon--green { background: #dcfce7; color: #166534; }
+.admin-stat__icon--blue { background: #dbeafe; color: #1d4ed8; }
+
+.admin-stat__label,
+.admin-muted {
+  color: #5b6879 !important;
+}
+
+.admin-stat__value {
+  color: #111827;
+  font-size: 1.18rem;
+}
+
+.admin-panel__header {
+  border-bottom: 1px solid #d9e0ea !important;
+  background: #f8fafc !important;
+  color: #172033 !important;
+}
+
+.admin-filters .form-control { min-width: 240px; }
+.admin-filters .form-select { min-width: 170px; }
+
+.admin-search-icon {
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  color: #64748b;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.admin-table thead th {
+  border-bottom: 1px solid #cbd5e1;
+  background: #17263d !important;
+  color: #fff !important;
+  font-size: 0.79rem;
+  white-space: nowrap;
+}
+
+.admin-table tbody td {
+  border-color: #e2e8f0;
+  color: #253247;
+  vertical-align: middle;
+}
+
+.admin-table tbody tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+.admin-products-cell { min-width: 240px; }
+.admin-status-select { min-width: 145px; color: #172033 !important; background-color: #fff !important; }
+
+@media (max-width: 767.98px) {
+  .admin-filters .form-control,
+  .admin-filters .form-select { min-width: 100%; }
 }
 
 @media (max-width: 991.98px) {

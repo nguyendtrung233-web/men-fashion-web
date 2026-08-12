@@ -12,6 +12,7 @@ import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { Profile } from './pages/Profile';
 import { Cart } from './pages/Cart';
+import { Admin } from './pages/Admin';
 
 export default function App() {
   return (
@@ -41,6 +42,9 @@ export default function App() {
 
               {/* 6. My Cart Page: Hiển thị các sản phẩm trong giỏ hàng và tổng tiền */}
               <Route path="/cart" element={<Cart />} />
+
+              {/* Trang quản trị đơn hàng và thanh toán */}
+              <Route path="/admin" element={<Admin />} />
 
               {/* Route fallback chuyển hướng về Trang chủ nếu nhập sai URL */}
               <Route path="*" element={<Navigate to="/" replace />} />
