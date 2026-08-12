@@ -1,0 +1,6 @@
+{
+  "name": "Hệ Thống Thời Trang Nam",
+  "description": "Giao diện hệ thống quản lý bán hàng thời trang nam cao cấp với ReactJS, React-Bootstrap và React Router.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
