@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, Container, Badge, Dropdown } from 'react-bootstrap';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { ShoppingBag, User, LogIn, UserPlus, Phone, Home, LogOut, ShieldCheck } from 'lucide-react';
+import { ShoppingBag, User, LogIn, UserPlus, Phone, Home, LogOut, ShieldCheck, LayoutDashboard } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export const NavigationBar: React.FC = () => {
@@ -69,6 +69,13 @@ export const NavigationBar: React.FC = () => {
               <User size={17} />
               <span>Hồ Sơ Của Tôi</span>
             </Nav.Link>
+
+            {user?.role === 'admin' && (
+              <Nav.Link as={NavLink} to="/admin" className="d-flex align-items-center gap-1">
+                <LayoutDashboard size={17} />
+                <span>Quản Trị</span>
+              </Nav.Link>
+            )}
           </Nav>
 
           {/* User Auth Buttons or User Avatar Dropdown */}
@@ -112,6 +119,15 @@ export const NavigationBar: React.FC = () => {
                     <span>Giỏ Hàng ({totalCartCount})</span>
                   </Dropdown.Item>
                   <Dropdown.Divider />
+                  {user.role === 'admin' && (
+                    <>
+                      <Dropdown.Item as={Link} to="/admin" className="d-flex align-items-center gap-2 fw-semibold">
+                        <LayoutDashboard size={16} />
+                        <span>Trung Tâm Quản Trị</span>
+                      </Dropdown.Item>
+                      <Dropdown.Divider />
+                    </>
+                  )}
                   <Dropdown.Item
                     onClick={handleLogout}
                     className="text-danger d-flex align-items-center gap-2 fw-semibold"
