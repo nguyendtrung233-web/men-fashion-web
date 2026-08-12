@@ -24,6 +24,7 @@ export const Register: React.FC = () => {
     password?: string;
     confirmPassword?: string;
     agreeTerms?: string;
+    general?: string;
   }>({});
 
   /**
@@ -42,6 +43,7 @@ export const Register: React.FC = () => {
       password?: string;
       confirmPassword?: string;
       agreeTerms?: string;
+      general?: string;
     } = {};
     let isValid = true;
 
@@ -105,12 +107,14 @@ export const Register: React.FC = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      registerUser({
+      const result = registerUser({
         fullName: fullName.trim(),
         email: email.trim(),
-        phone: phone.trim()
+        phone: phone.trim(),
+        password
       });
-      navigate('/profile');
+      if (result.success) navigate('/profile');
+      else setErrors({ general: result.message });
     }
   };
 
@@ -141,6 +145,9 @@ export const Register: React.FC = () => {
               </div>
 
               <Card.Body className="p-4 p-md-5 bg-white">
+                {errors.general && (
+                  <div className="alert alert-danger py-2 fs-6" role="alert">{errors.general}</div>
+                )}
                 <Form onSubmit={handleSubmit} noValidate>
                   {/* TRƯỜNG HỌ VÀ TÊN */}
                   <Form.Group className="mb-3" controlId="regFullName">

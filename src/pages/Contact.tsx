@@ -69,9 +69,9 @@ export const Contact: React.FC = () => {
           {/* Contact Form */}
           <Col lg={7}>
             <Card className="shadow-sm border-0 rounded-4 overflow-hidden">
-              <Card.Header className="bg-slate-900 text-white p-4 border-bottom border-slate-800">
+              <Card.Header className="contact-form-header p-4 border-bottom">
                 <h4 className="fw-bold mb-1 text-amber-400 luxury-brand-font">GỬI THÔNG TIN LIÊN HỆ</h4>
-                <p className="text-slate-400 fs-6 mb-0">Điền thông tin bên dưới để nhận tư vấn từ Tailor Master</p>
+                <p className="contact-form-header__subtitle fs-6 mb-0">Điền thông tin bên dưới để nhận tư vấn từ Tailor Master</p>
               </Card.Header>
 
               <Card.Body className="p-4 p-md-5">
@@ -177,12 +177,12 @@ export const Contact: React.FC = () => {
           {/* Showroom Information */}
           <Col lg={5}>
             <div className="d-flex flex-column gap-4">
-              <Card className="shadow-sm border-0 rounded-4 p-4 bg-slate-900 text-white">
+              <Card className="contact-info-card shadow-sm border-0 rounded-4 p-4 text-white">
                 <div className="d-flex align-items-center gap-2 mb-3">
                   <ShieldCheck className="text-amber-400" size={28} />
                   <h5 className="fw-bold text-amber-400 mb-0 luxury-brand-font">SHOWROOM FLAGSHIP</h5>
                 </div>
-                <div className="d-flex flex-column gap-3 text-slate-300 fs-6">
+                <div className="contact-info-card__content d-flex flex-column gap-3 fs-6">
                   <div className="d-flex gap-3">
                     <MapPin className="text-amber-400 flex-shrink-0 mt-1" size={20} />
                     <div>

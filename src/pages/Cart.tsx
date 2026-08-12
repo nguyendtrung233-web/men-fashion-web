@@ -5,7 +5,7 @@ import { useApp } from '../context/AppContext';
 import { Link, useNavigate } from 'react-router-dom';
 
 export const Cart: React.FC = () => {
-  const { cart, removeFromCart, updateCartQuantity, clearCart, placeOrder, showToast } = useApp();
+  const { cart, user, removeFromCart, updateCartQuantity, clearCart, placeOrder, showToast } = useApp();
   const navigate = useNavigate();
 
   // State Voucher
@@ -44,7 +44,14 @@ export const Cart: React.FC = () => {
 
   // Xác nhận đặt hàng
   const handleConfirmOrder = () => {
-    placeOrder(paymentMethod, totalPayment);
+    if (!user) {
+      showToast('Vui lòng đăng nhập trước khi đặt hàng.');
+      setShowCheckoutModal(false);
+      navigate('/login');
+      return;
+    }
+    const order = placeOrder(paymentMethod, totalPayment);
+    if (!order) return;
     setShowCheckoutModal(false);
     navigate('/profile');
   };

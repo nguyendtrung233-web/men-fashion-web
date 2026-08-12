@@ -5,7 +5,7 @@ import { useApp } from '../context/AppContext';
 import { Link, useNavigate } from 'react-router-dom';
 
 export const Profile: React.FC = () => {
-  const { user, orders, updateProfile, logoutUser } = useApp();
+  const { user, customerOrders, updateProfile, logoutUser } = useApp();
   const navigate = useNavigate();
 
   const [isEditing, setIsEditing] = useState(false);
@@ -113,7 +113,7 @@ export const Profile: React.FC = () => {
                     <Nav.Link eventKey="orders" className="d-flex align-items-center gap-2 py-2.5 px-3 rounded-3 fw-medium">
                       <ShoppingBag size={18} />
                       <span>Lịch Sử Đơn Hàng</span>
-                      <Badge bg="secondary" className="ms-auto">{orders.length}</Badge>
+                      <Badge bg="secondary" className="ms-auto">{customerOrders.length}</Badge>
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
@@ -136,7 +136,7 @@ export const Profile: React.FC = () => {
                       QUẢN LÝ LỊCH SỬ ĐƠN HÀNG
                     </h5>
 
-                    {orders.length === 0 ? (
+                    {customerOrders.length === 0 ? (
                       <div className="text-center py-5">
                         <p className="text-slate-500">Bạn chưa có đơn hàng nào.</p>
                         <Link to="/" className="btn btn-gold rounded-pill px-4">
@@ -157,7 +157,7 @@ export const Profile: React.FC = () => {
                             </tr>
                           </thead>
                           <tbody>
-                            {orders.map((ord) => (
+                            {customerOrders.map((ord) => (
                               <tr key={ord.id}>
                                 <td className="fw-bold text-slate-900">{ord.id}</td>
                                 <td className="text-slate-600 fs-7">{ord.date}</td>
@@ -182,7 +182,18 @@ export const Profile: React.FC = () => {
                                     {ord.status}
                                   </Badge>
                                 </td>
-                                <td className="fs-7 text-slate-500">{ord.paymentMethod}</td>
+                                <td className="fs-7 text-slate-600">
+                                  <div>{ord.paymentMethod}</div>
+                                  <Badge
+                                    bg={
+                                      ord.paymentStatus === 'Đã thanh toán' ? 'success' :
+                                      ord.paymentStatus === 'Đã hoàn tiền' ? 'secondary' : 'warning'
+                                    }
+                                    className="mt-1"
+                                  >
+                                    {ord.paymentStatus}
+                                  </Badge>
+                                </td>
                               </tr>
                             ))}
                           </tbody>

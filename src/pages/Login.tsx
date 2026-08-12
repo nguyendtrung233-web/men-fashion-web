@@ -57,9 +57,12 @@ export const Login: React.FC = () => {
 
     // Gọi hàm validate thủ công
     if (validateForm()) {
-      // Thực hiện đăng nhập thành công
-      loginUser(email.trim());
-      navigate('/profile');
+      const result = loginUser(email.trim(), password);
+      if (!result.success) {
+        setGeneralMessage(result.message);
+        return;
+      }
+      navigate(result.isAdmin ? '/admin' : '/profile');
     }
   };
 
@@ -68,6 +71,13 @@ export const Login: React.FC = () => {
     setEmail('doanhnhan@gentleman.vn');
     setPassword('gentleman2026');
     setErrors({});
+  };
+
+  const fillAdminAccount = () => {
+    setEmail('admin@gentleman.vn');
+    setPassword('admin2026');
+    setErrors({});
+    setGeneralMessage(null);
   };
 
   return (
@@ -176,6 +186,16 @@ export const Login: React.FC = () => {
                   >
                     <CheckCircle2 size={16} className="text-amber-600" />
                     <span>Tự động điền tài khoản mẫu (Demo)</span>
+                  </Button>
+
+                  <Button
+                    variant="outline-dark"
+                    type="button"
+                    onClick={fillAdminAccount}
+                    className="w-100 mt-2 py-2 rounded-3 fs-6 d-flex align-items-center justify-content-center gap-1 border-dashed"
+                  >
+                    <ShieldCheck size={16} className="text-amber-600" />
+                    <span>Điền tài khoản quản trị (Admin)</span>
                   </Button>
                 </Form>
 
